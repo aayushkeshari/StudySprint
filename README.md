@@ -1,4 +1,4 @@
-# StudySprint — Active Spaced-Repetition & Vocabulary Recall Aid
+# StudySprint: Active Spaced-Repetition & Vocabulary Recall Aid
 
 An interactive, single-page learning workbench for mastering domain-specific vocabulary and technical terminology. Built using **Svelte 5** (runes) and **Vite**, featuring zero-friction keyboard navigation, real-time reactive telemetry, and persistent local storage.
 
