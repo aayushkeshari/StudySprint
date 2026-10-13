@@ -4,6 +4,23 @@ An interactive, single-page learning workbench for mastering domain-specific voc
 
 ---
 
+## Project Overview & Core Architecture
+
+StudySprint is an active-recall flashcard workbench built to eliminate interaction friction during intensive vocabulary and concept review. The platform pairs an interactive 3D spatial card canvas with an inline CRUD card management table, combining responsive design with deterministic state boundaries.
+
+### Technical Highlights
+- **Svelte 5 Runes Reactivity:** Powered entirely by `$state`, `$derived`, and `$props`. A modular domain class (`DeckManager`) encapsulates deck state, filter pipelines, cyclic navigation indices, and persistence logic without external store dependencies.
+- **Full-Spectrum CRUD Support:**
+  - **Create:** Fast-entry input strip with instant validation, categorization tagging, and `crypto.randomUUID()` generation.
+  - **Read:** Bi-directional deck traversal, automated cyclic wrapping, dynamic category filtering (`ALL`, `LEARNING`, `REVIEWING`, `MASTERED`), and real-time deck telemetry.
+  - **Update:** Dual-mode state updates via keyboard shortcuts (`1`, `2`, `3`) during practice and inline text editing in the manager table.
+  - **Delete:** Immutable array filtering with index-boundary clamping to avoid out-of-bounds reads.
+- **Keyboard-First Ergonomics:** Hardware-accelerated 3D flips (`preserve-3d`, `backface-visibility: hidden`), `Space` to flip, arrow keys to navigate, and input guards to avoid shortcut collisions while typing.
+- **Quality Assurance:** Headless unit test suite with **Vitest**, executing 5 comprehensive test assertions across the entire CRUD lifecycle (`tests/deck.test.js`).
+- **Production Deployment:** Built with Vite and deployed to edge infrastructure on **Vercel** (`https://study-sprint-wheat.vercel.app`).
+
+---
+
 ## 1. Problem Identification
 - **Problem Statement:** Students preparing for technical exams or learning domain vocabulary face high interaction friction in traditional tools (cluttered menus, delayed card generation, rigid review schedules).
 - **Solution:** A lightweight, client-side workbench combining a 3D-perspective active recall flashcard interface with an instant CRUD card manager.
